@@ -149,8 +149,8 @@ Las **migraciones** son como un control de versiones para la base de datos que p
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-		});
-	}
+        });
+    }
 ```
 * El metodo `up()` se usa para añadir tablas nuevas, columnas o indices a la base de datos.
 * El metodo `down()` se usa para eliminar tablas, columnas o indices de la base de datos.
