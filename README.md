@@ -261,5 +261,6 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
 
 ## 22 Creando el Modelo task
 * Ejecutar desde el terminal `php artisan make:model Models/Task`.
+* Se añade `Models/` delante del modelo para que se cree dentro de la carpeta `Models`.
 
 ## 23
