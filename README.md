@@ -267,9 +267,41 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
 * _(Opcional)_ Añadir la siguiente línea dentro de la clase `Task` en `Models\Tasks`:
 ```php
     ...
-    class Task extendes Model
+    class Task extends Model
     {
         protected $table = "tasks";
     }
 ```
-* Si no se añade esa línea, Laravel lo hace de manera automática.
+* Por defecto, Laravel relaciona el modelo `Task` (escrito en singular y empezando con mayúscula) con la tabla `tasks` (escrito en plural y todo en minúsculas). En el caso de que no coincidan, hay que especificarlo con esta línea.
+
+* Añadir la siguiente línea debajo de la anterior:
+```php
+        protected $fillable = ['user_id', 'name'];
+```
+* Sirve para indicar que campos se van a añadir de manera predeterminada a la tabla.
+
+* Para una relación _Uno a Muchos_ entre usuarios `user` y tareas `task`, añadir en `Models\User.php` la función `task`:
+```php
+    ...
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
+```
+* Esta función permite relacionar un usuario con muchas tareas usando el método `hasMany()`.
+* Dentro del método `hasMany()` se puede indicar de 2 maneras distintas:
+    * `hasMany('App\Models\Task');`
+    * `hasMany('Task::Class');`
+* La última opción solo es factible si los modelos se encuentran dentro de la misma carpeta.
+
+* Para la relación inversa _Muchos a Uno_ entre tareas `task` y usuarios `user`, añadir en `Models\Task.php` la función `user`:
+```php
+    ...
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+```  
+* Esta función permite relacionar una tarea con un usuario usando el método `belongsTo()`.
+
+# 24
