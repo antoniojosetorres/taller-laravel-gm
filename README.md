@@ -257,10 +257,19 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
 	* `ValidatesRequests` dentro de `Illuminate\Foundation\Validation`.
 	* `Controller` dentro de `Illuminate\Routing` renombrado como `BaseController` para no confundirlo con la propia clase `Controller` (se crea un alias usando `as`).
 
-* Para cambiar el nombre de la aplicacion `App` a `Proyecto`, se ejecuta desde el terminal `php artisan app:name Proyecto`. De esta manera, se cambia el namespace de todos los ficheros afectados dela aplicacion.
+* Para cambiar el nombre de la aplicacion `App` a `Proyecto`, se ejecuta desde el terminal `php artisan app:name Proyecto`. De esta manera, se cambia el namespace de todos los ficheros afectados de la aplicacion.
 
 ## 22 Creando el Modelo task
 * Ejecutar desde el terminal `php artisan make:model Models/Task`.
 * Se añade `Models/` delante del modelo para que se cree dentro de la carpeta `Models`.
 
-## 23
+## 23 Configurando Relaciones entre los Modelos
+* _(Opcional)_ Añadir la siguiente línea dentro de la clase `Task` en `Models\Tasks`:
+```php
+    ...
+    class Task extendes Model
+    {
+        protected $table = "tasks";
+    }
+```
+* Si no se añade esa línea, Laravel lo hace de manera automática.
