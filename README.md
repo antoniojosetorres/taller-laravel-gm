@@ -283,7 +283,7 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
 * Para una relación _Uno a Muchos_ entre usuarios `user` y tareas `task`, añadir en `Models\User.php` la función `task`:
 ```php
     ...
-    public function tasks()
+    public function tasks()   // en plural, muchas tareas
     {
         return $this->hasMany('App\Models\Task');
     }
@@ -297,11 +297,21 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
 * Para la relación inversa _Muchos a Uno_ entre tareas `task` y usuarios `user`, añadir en `Models\Task.php` la función `user`:
 ```php
     ...
-    public function user()
+    public function user()   // en singular, un usuario
     {
         return $this->belongsTo('App\Models\User');
     }
 ```  
 * Esta función permite relacionar una tarea con un usuario usando el método `belongsTo()`.
 
-# 24
+# 24 Mas sobre las Relaciones entre Modelos
+* Para usar la clave foránea `user_id`, esta se añade como segundo parametro:
+```php
+    ...
+    public function tasks()
+    }
+        return $this->hasMany('App\Models\Task', 'user_id');
+    }
+```
+
+# 25
