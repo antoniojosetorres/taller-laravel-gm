@@ -304,7 +304,7 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
 ```  
 * Esta función permite relacionar una tarea con un usuario usando el método `belongsTo()`.
 
-# 24 Mas sobre las Relaciones entre Modelos
+## 24 Mas sobre las Relaciones entre Modelos
 * Para usar la clave foránea `user_id`, esta se añade como segundo parametro:
 ```php
     ...
@@ -314,4 +314,4 @@ Los **modelos** permiten consultar datos en sus tablas así como insertar nuevos
     }
 ```
 
-# 25
+## 25
